@@ -1,0 +1,40 @@
+.presentation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 10rem;
+    font-size: 3rem;
+    color: white;
+
+    & h1 {
+        text-align: center;
+        padding: .2rem;
+        background-color: #4169e1af;
+    }
+
+    & p {
+        font-size: 1.9rem;
+        font-weight: bold;
+    }
+
+    & span {
+        & a {
+            text-decoration: none;
+            color: white;
+
+            & .social {
+                transition: 0.3s color ease-in-out;
+
+                &:hover {
+                    color: #4169e1af;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    & img {
+        width: 20rem;
+    }
+}

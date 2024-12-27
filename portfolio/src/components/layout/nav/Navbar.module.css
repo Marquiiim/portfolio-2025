@@ -1,0 +1,27 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 4rem;
+}
+.navbar .list_nav {
+  display: flex;
+  position: relative;
+  gap: 4rem;
+}
+.navbar .list_nav li {
+  list-style: none;
+  padding: 0.5rem;
+  border-bottom: 3.5px solid transparent;
+  transition: 0.3s border ease-in-out;
+}
+.navbar .list_nav li:hover {
+  border-bottom: 3.5px solid rgba(65, 105, 225, 0.6862745098);
+  cursor: pointer;
+}
+.navbar .list_nav li a {
+  text-decoration: none;
+  color: white;
+}/*# sourceMappingURL=Navbar.module.css.map */

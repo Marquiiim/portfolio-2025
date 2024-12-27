@@ -1,0 +1,29 @@
+.sobremim {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    color: white;
+
+    & div {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        max-width: 800px;
+
+        & h1 {
+            font-size: 2rem;
+            color: #4169e1af;
+        }
+
+        & p {
+            font-size: 1.3rem;
+
+            & strong {
+                color: #4169e1af;
+            }
+        }
+
+    }
+}

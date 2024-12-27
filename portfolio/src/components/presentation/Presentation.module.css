@@ -1,0 +1,32 @@
+.presentation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 10rem;
+  font-size: 3rem;
+  color: white;
+}
+.presentation h1 {
+  text-align: center;
+  padding: 0.2rem;
+  background-color: rgba(65, 105, 225, 0.6862745098);
+}
+.presentation p {
+  font-size: 1.9rem;
+  font-weight: bold;
+}
+.presentation span a {
+  text-decoration: none;
+  color: white;
+}
+.presentation span a .social {
+  transition: 0.3s color ease-in-out;
+}
+.presentation span a .social:hover {
+  color: rgba(65, 105, 225, 0.6862745098);
+  cursor: pointer;
+}
+.presentation img {
+  width: 20rem;
+}/*# sourceMappingURL=Presentation.module.css.map */
