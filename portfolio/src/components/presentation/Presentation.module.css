@@ -6,6 +6,7 @@
   gap: 10rem;
   font-size: 3rem;
   color: white;
+  border-bottom: 3px dashed rgba(65, 105, 225, 0.6862745098);
 }
 .presentation h1 {
   text-align: center;
