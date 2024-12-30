@@ -2,6 +2,7 @@ import NavBar from './components/layout/nav/Navbar'
 import SobreMim from './components/sobremim/Sobremim'
 import Presentation from './components/presentation/Presentation'
 import Skills from './components/skills/Skills'
+import Projects from './components/projects/Projects'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Presentation />
       <SobreMim />
       <Skills />
+      <Projects />
     </div>
   );
 }

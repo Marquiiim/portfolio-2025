@@ -4,6 +4,7 @@
   align-items: center;
   flex-direction: column;
   height: 100vh;
+  border-bottom: 3px dashed rgba(65, 105, 225, 0.6862745098);
 }
 .skills .title {
   text-align: center;

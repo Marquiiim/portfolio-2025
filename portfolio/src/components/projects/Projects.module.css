@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+.container div {
+  text-align: center;
+  margin-top: 3rem;
+}
+.container div h1 {
+  font-size: 2.5rem;
+  color: rgba(65, 105, 225, 0.6862745098);
+}
+.container .content {
+  display: flex;
+  gap: 1rem;
+}/*# sourceMappingURL=Projects.module.css.map */

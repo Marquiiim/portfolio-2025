@@ -1,0 +1,48 @@
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 3.5rem;
+    border: 2.5px solid #4169e1af;
+    border-radius: 1rem;
+
+    & div {
+
+        & img {}
+    }
+
+    & p {
+        color: white;
+        font-weight: bold;
+    }
+
+    & .options_card {
+        display: flex;
+        gap: 2rem;
+        padding: 1rem;
+        font-size: 1.5rem;
+
+        & span {
+
+            & a {
+                text-decoration: none;
+
+                & .options {
+                    color: #4169e1af;
+
+                    &:hover {
+                        color: white;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+
+    & .technologies {
+        font-size: 11px;
+        color: rgba(137, 137, 137, 0.853);
+    }
+}
