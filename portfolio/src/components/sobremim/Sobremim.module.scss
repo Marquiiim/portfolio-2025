@@ -2,10 +2,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     text-align: center;
+    gap: 3rem;
     height: 100vh;
     color: white;
     border-bottom: 3px dashed #4169e1af;
+
+
+    & div {
+
+        & h1 {
+            font-size: 2.5rem;
+            color: #4169e1af;
+        }
+    }
 
     & div {
         display: flex;
@@ -13,10 +24,6 @@
         gap: 1.5rem;
         max-width: 800px;
 
-        & h1 {
-            font-size: 2.5rem;
-            color: #4169e1af;
-        }
 
         & p {
             font-size: 1.3rem;

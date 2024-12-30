@@ -1,0 +1,45 @@
+.skills {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+.skills .title {
+  text-align: center;
+  margin-top: 3rem;
+}
+.skills .title h1 {
+  font-size: 2.5rem;
+  color: rgba(65, 105, 225, 0.6862745098);
+}
+.skills .content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 3rem;
+  gap: 5rem;
+}
+.skills .content .category {
+  width: calc(45% - 1rem);
+  gap: 10px;
+  color: white;
+}
+.skills .content .category h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: rgba(137, 137, 137, 0.853);
+}
+.skills .content .category ul {
+  border-left: 5px solid rgba(65, 105, 225, 0.6862745098);
+  border-radius: 0.2rem;
+  padding: 0.67rem;
+  list-style: none;
+}
+.skills .content .category ul li {
+  margin-bottom: 1rem;
+}
+.skills .content .category ul li span {
+  font-size: 10px;
+  color: rgba(137, 137, 137, 0.853);
+}/*# sourceMappingURL=Skills.module.css.map */

@@ -9,7 +9,10 @@ function Navbar() {
                     <a href="#sobremim">Sobre mim</a>
                 </li>
                 <li>
-                    <a href="#">Habilidades</a>
+                    <a href="#skills">Habilidades</a>
+                </li>
+                <li>
+                    <a href="#projects">Projetos</a>
                 </li>
                 <li>
                     <a href="#">Contato</a>
