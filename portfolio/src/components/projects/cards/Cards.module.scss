@@ -4,13 +4,18 @@
     align-items: center;
     flex-direction: column;
     gap: 1rem;
-    padding: 3.5rem;
+    padding: 10px 20px 50px 20px;
     border: 2.5px solid #4169e1af;
     border-radius: 1rem;
 
-    & div {
+    & .photo_content {
+        width: 260px;
 
-        & img {}
+        & img {
+            width: 100%;
+            border-radius: 1rem;
+            border: 2.5px solid #4169e1af;
+        }
     }
 
     & p {
@@ -23,6 +28,7 @@
         gap: 2rem;
         padding: 1rem;
         font-size: 1.5rem;
+        margin: 0;
 
         & span {
 
@@ -44,5 +50,19 @@
     & .technologies {
         font-size: 11px;
         color: rgba(137, 137, 137, 0.853);
+
+        & .techn {
+            margin-right: 4px;
+        }
+
+        & .icon {
+            font-size: 1.2rem;
+            margin-left: 1.5px;
+
+            &:hover {
+                color: #4169e1af;
+                cursor: pointer;
+            }
+        }
     }
 }
