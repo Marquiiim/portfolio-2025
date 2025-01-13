@@ -19,7 +19,7 @@ function Skills() {
                             JavaScript <span>Intermediário</span>
                         </li>
                         <li>
-                            TypeScript <span>Básico</span>
+                            TypeScript <span>Iniciante</span>
                         </li>
                     </ul>
                 </section>
@@ -32,7 +32,7 @@ function Skills() {
                             React <span>Intermediário</span>
                         </li>
                         <li>
-                            Angular <span>Básico</span>
+                            Angular <span>Iniciante</span>
                         </li>
                         <li>
                             HTML5 <span>Avançado</span>

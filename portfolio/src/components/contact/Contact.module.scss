@@ -1,0 +1,63 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+    & .content {
+
+        & .title {
+            margin-bottom: 10rem;
+
+            & h1 {
+                font-size: 2.5rem;
+                color: #4169e1af;
+                text-align: center;
+            }
+        }
+
+        & form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            & label {
+                font-size: 20px;
+                text-align: center;
+                color: #4169e1af;
+            }
+
+            & input {
+                border-radius: .3rem;
+                border: 1px solid #4169e1af;
+                background-color: rgba(255, 255, 255, 0.893);
+                padding: 7px;
+                text-align: center;
+            }
+
+            & textarea {
+                border-radius: .3rem;
+                border: 1px solid #4169e1af;
+                background-color: rgba(255, 255, 255, 0.893);
+                padding: 7px;
+                text-align: center;
+            }
+
+            & button {
+                padding: .5rem;
+                border-radius: .3rem;
+                border: none;
+
+                &:hover {
+                    background-color: #4169e1af;
+                    color: white;
+                    cursor: pointer;
+                }
+
+                &:active {
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+}
