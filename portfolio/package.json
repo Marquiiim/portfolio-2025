@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "version": "0.1.0",
-  "homepage": "https://Marquiiim.github.io/New-Portfolio",
+  "homepage": "https://Marquiiim.github.io/portfolio-2025",
   "private": true,
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
