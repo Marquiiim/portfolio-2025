@@ -19,6 +19,9 @@ function Skills() {
                             JavaScript <span>Intermediário</span>
                         </li>
                         <li>
+                            Python <span>Básico</span>
+                        </li>
+                        <li>
                             TypeScript <span>Iniciante</span>
                         </li>
                     </ul>
@@ -57,7 +60,13 @@ function Skills() {
                             Algoritmos <span>Avançado</span>
                         </li>
                         <li>
-                            Programação Orientada a Objetos <span>Avançado</span>
+                            Programação Orientada a Objetos <span>Intermediário</span>
+                        </li>
+                        <li>
+                            POO Python <span>Básico</span>
+                        </li>
+                        <li>
+                            Interface Gráfica Utilizando Python - Kivy<span>Básico</span>
                         </li>
                         <li>
                             Git e GitHub <span>Avançado</span>
