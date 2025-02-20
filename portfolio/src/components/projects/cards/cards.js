@@ -1,6 +1,7 @@
 import styles from './Cards.module.css'
 
-import { DiJsBadge, DiSass, DiReact, DiHtml5, DiCss3 } from "react-icons/di";
+import { DiJsBadge, DiSass, DiReact, DiHtml5, DiCss3, DiMongodb } from "react-icons/di";
+import { SiAxios, SiExpress } from "react-icons/si";
 
 import { DiCodeBadge } from "react-icons/di";
 import { FiAirplay } from "react-icons/fi";
@@ -19,6 +20,12 @@ function Cards({ img, name, tec, code, hosting }) {
                 return <DiHtml5 />
             case 'React':
                 return <DiReact />
+            case 'MongoDB':
+                return <DiMongodb />
+            case 'Axios':
+                return <SiAxios />
+            case 'Express':
+                return <SiExpress />
             default:
                 return null;
         }
