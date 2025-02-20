@@ -8,7 +8,6 @@
 }
 .container div {
   text-align: center;
-  margin-top: 3rem;
 }
 .container div h1 {
   font-size: 2.5rem;
@@ -19,14 +18,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  padding: 4rem;
+  gap: 2rem;
 }
 .container .content .carousel {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 62rem;
-  gap: 1rem;
+  width: 55rem;
+  gap: 1.5rem;
+  height: 100%;
 }
 .container .content .arrow_right,
 .container .content .arrow_left {

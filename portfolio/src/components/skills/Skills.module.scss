@@ -7,7 +7,6 @@
 
     .title {
         text-align: center;
-        margin-top: 3rem;
 
         h1 {
             font-size: 2.5rem;
@@ -19,7 +18,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        margin-top: 3rem;
+        padding: 4rem;
         gap: 5rem;
 
         .category {
@@ -29,7 +28,7 @@
 
             h2 {
                 text-align: center;
-                margin-bottom: 1rem;
+                padding: 1rem;
                 color: rgba(137, 137, 137, 0.853);
             }
 
