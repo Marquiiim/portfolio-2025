@@ -4,10 +4,13 @@ import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
 
 import { useState } from 'react'
 
-import project1 from '../../img/Captura de tela 2025-01-13 140455.png'
-import project2 from '../../img/Captura de tela 2025-01-13 140519.png'
-import project3 from '../../img/Captura de tela 2025-02-20 151054.png'
-import project4 from '../../img/Captura de tela 2025-01-13 152527.png'
+import Pokedex from '../../img/Captura de tela 2025-01-13 140455.png'
+import LojaCelular from '../../img/Captura de tela 2025-01-13 140519.png'
+import Costs from '../../img/Captura de tela 2025-02-20 151054.png'
+import PortAntigo from '../../img/Captura de tela 2025-01-13 152527.png'
+import LuxureStore from '../../img/Captura de tela 2025-02-20 171315.png'
+import Concessionaria from '../../img/Captura de tela 2025-02-20 171439.png'
+import CadastroUsuarios from '../../img/1736879714306.jpg'
 
 import Cards from './cards/cards'
 
@@ -16,13 +19,13 @@ function Projects() {
     const [currentIndex, setCurrentIndex] = useState(0)
 
     const items = [
-        <Cards img={project1} name='Pokedex' code='https://github.com/Marquiiim/Pokedex' hosting='https://marquiiim.github.io/pokedex/' tec='JS, React, CSS, HTML, Sass' />,
-        <Cards img={project2} name='Loja de celular' code='https://github.com/Marquiiim/loja-iphone' hosting='https://marquiiim.github.io/loja-iphone/' tec='JS, React, CSS, HTML, Sass' />,
-        <Cards img={project3} name='Costs' code='https://github.com/Marquiiim/costs-project' hosting='https://marquiiim.github.io/costs-project/' tec='JS, React, CSS, HTML, Sass' />,
-        <Cards img='' name='Luxure Store' code='' hosting='' tec='JS, React, CSS, HTML, Sass' />,
-        <Cards img='' name='Concessionária' code='' hosting='' tec='JS, React, CSS, HTML, Sass' />,
-        <Cards img='' name='Cadastro de Usuários' code='' hosting='' tec='JS, React, MongoDB, Axios, CSS, HTML' />,
-        <Cards img={project4} name='Portfolio Antigo' code='https://github.com/Marquiiim/portfolio' hosting='https://marquiiim.github.io/portfolio/' tec='JS, CSS, HTML' />,
+        <Cards img={Pokedex} name='Pokedex' code='https://github.com/Marquiiim/Pokedex' hosting='https://marquiiim.github.io/pokedex/' tec='JS, React, CSS, HTML, Sass' />,
+        <Cards img={LojaCelular} name='Loja de celular' code='https://github.com/Marquiiim/loja-iphone' hosting='https://marquiiim.github.io/loja-iphone/' tec='JS, React, CSS, HTML, Sass' />,
+        <Cards img={Costs} name='Costs' code='https://github.com/Marquiiim/costs-project' hosting='https://marquiiim.github.io/costs-project/' tec='JS, React, CSS, HTML, Sass' />,
+        <Cards img={LuxureStore} name='Luxure Store' code='https://github.com/Marquiiim/luxure-store' hosting='' tec='JS, React, CSS, HTML, Sass' />,
+        <Cards img={Concessionaria} name='Concessionária' code='https://github.com/Marquiiim/loja-veiculos' hosting='' tec='JS, React, CSS, HTML, Sass' />,
+        <Cards img={CadastroUsuarios} name='Cadastro de Usuários' code='https://github.com/Marquiiim/cadastro-usuarios' hosting='' tec='JS, React, MongoDB, Axios, CSS, HTML' />,
+        <Cards img={PortAntigo} name='Portfolio Antigo' code='https://github.com/Marquiiim/portfolio' hosting='https://marquiiim.github.io/portfolio/' tec='JS, CSS, HTML' />,
     ]
 
     const next = () => {
