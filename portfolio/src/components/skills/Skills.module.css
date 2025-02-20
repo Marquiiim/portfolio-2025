@@ -33,7 +33,7 @@
 .skills .content .category ul {
   border-left: 5px solid rgba(65, 105, 225, 0.6862745098);
   border-radius: 0.2rem;
-  padding: 0.67rem;
+  padding: 0 0 0 0.7rem;
   list-style: none;
 }
 .skills .content .category ul li {
