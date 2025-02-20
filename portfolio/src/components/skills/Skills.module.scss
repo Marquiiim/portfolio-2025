@@ -5,44 +5,44 @@
     flex-direction: column;
     height: 100vh;
 
-    & .title {
+    .title {
         text-align: center;
         margin-top: 3rem;
 
-        & h1 {
+        h1 {
             font-size: 2.5rem;
             color: #4169e1af;
         }
     }
 
-    & .content {
+    .content {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         margin-top: 3rem;
         gap: 5rem;
 
-        & .category {
+        .category {
             width: calc(45% - 1rem);
             gap: 10px;
             color: white;
 
-            & h2 {
+            h2 {
                 text-align: center;
                 margin-bottom: 1rem;
                 color: rgba(137, 137, 137, 0.853);
             }
 
-            & ul {
+            ul {
                 border-left: 5px solid #4169e1af;
                 border-radius: .2rem;
                 padding: 0 0 0 .7rem;
                 list-style: none;
 
-                & li {
+                li {
                     margin-bottom: 1rem;
 
-                    & span {
+                    span {
                         font-size: 10px;
                         color: rgba(137, 137, 137, 0.853);
                     }

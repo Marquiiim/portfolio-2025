@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    overflow: hidden;
     height: 100vh;
 
     div {
@@ -16,14 +17,31 @@
     }
 
     .content {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
 
         .carousel {
-            display: grid;
-            grid-auto-flow: column;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            width: 62rem;
             gap: 1rem;
-            overflow-x: auto;
-            overscroll-behavior-x: contain;
-            scroll-snap-type: x mandatory;
+        }
+
+        .arrow_right,
+        .arrow_left {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            color: #4169e1af;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
         }
     }
 }

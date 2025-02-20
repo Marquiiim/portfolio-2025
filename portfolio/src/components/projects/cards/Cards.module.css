@@ -7,6 +7,7 @@
   padding: 10px 20px 50px 20px;
   border: 2.5px solid rgba(65, 105, 225, 0.6862745098);
   border-radius: 1rem;
+  scroll-snap-align: center;
 }
 .content .photo_content {
   width: 260px;

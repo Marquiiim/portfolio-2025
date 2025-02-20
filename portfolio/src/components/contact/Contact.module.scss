@@ -4,30 +4,30 @@
     justify-content: center;
     height: 100vh;
 
-    & .content {
+    .content {
 
-        & .title {
+        .title {
             margin-bottom: 10rem;
 
-            & h1 {
+            h1 {
                 font-size: 2.5rem;
                 color: #4169e1af;
                 text-align: center;
             }
         }
 
-        & form {
+        form {
             display: flex;
             flex-direction: column;
             gap: 1rem;
 
-            & label {
+            label {
                 font-size: 20px;
                 text-align: center;
                 color: #4169e1af;
             }
 
-            & input {
+            input {
                 border-radius: .3rem;
                 border: 1px solid #4169e1af;
                 background-color: rgba(255, 255, 255, 0.893);
@@ -35,7 +35,7 @@
                 text-align: center;
             }
 
-            & textarea {
+            textarea {
                 border-radius: .3rem;
                 border: 1px solid #4169e1af;
                 background-color: rgba(255, 255, 255, 0.893);
@@ -43,7 +43,7 @@
                 text-align: center;
             }
 
-            & button {
+            button {
                 padding: .5rem;
                 border-radius: .3rem;
                 border: none;

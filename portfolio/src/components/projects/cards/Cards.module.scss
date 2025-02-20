@@ -7,35 +7,36 @@
     padding: 10px 20px 50px 20px;
     border: 2.5px solid #4169e1af;
     border-radius: 1rem;
+    scroll-snap-align: center;
 
-    & .photo_content {
+    .photo_content {
         width: 260px;
 
-        & img {
+        img {
             width: 100%;
             border-radius: 1rem;
             border: 2.5px solid #4169e1af;
         }
     }
 
-    & p {
+    p {
         color: white;
         font-weight: bold;
     }
 
-    & .options_card {
+    .options_card {
         display: flex;
         gap: 2rem;
         padding: 1rem;
         font-size: 1.5rem;
         margin: 0;
 
-        & span {
+        span {
 
-            & a {
+            a {
                 text-decoration: none;
 
-                & .options {
+                .options {
                     color: #4169e1af;
 
                     &:hover {
@@ -47,15 +48,15 @@
         }
     }
 
-    & .technologies {
+    .technologies {
         font-size: 11px;
         color: rgba(137, 137, 137, 0.853);
 
-        & .techn {
+        .techn {
             margin-right: 4px;
         }
 
-        & .icon {
+        .icon {
             font-size: 1.2rem;
             margin-left: 1.5px;
 
