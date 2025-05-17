@@ -4,13 +4,15 @@ import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
 
 import { useState } from 'react'
 
-import Pokedex from '../../img/Captura de tela 2025-01-13 140455.png'
-import LojaCelular from '../../img/Captura de tela 2025-01-13 140519.png'
-import Costs from '../../img/Captura de tela 2025-02-20 151054.png'
-import PortAntigo from '../../img/Captura de tela 2025-01-13 152527.png'
-import LuxureStore from '../../img/Captura de tela 2025-02-20 171315.png'
-import Concessionaria from '../../img/Captura de tela 2025-02-20 171439.png'
-import CadastroUsuarios from '../../img/1736879714306.jpg'
+import Pokedex from '../../img/Pokedex.png'
+import LojaCelular from '../../img/Loja_Celular.png'
+import Costs from '../../img/Costs_Project.png'
+import PortAntigo from '../../img/Port_Antigo.png'
+import LuxureStore from '../../img/Luxure_Store.png'
+import Concessionaria from '../../img/Loja_Veiculos.png'
+import CadastroUsuarios from '../../img/Cadastro_Usuarios.jpg'
+import CD342 from '../../img/CD_342.png'
+import Pythonimg from '../../img/Python_image.png'
 
 import Cards from './cards/cards'
 
@@ -20,7 +22,7 @@ function Projects() {
 
     const items = [
         <Cards img={Pokedex} name='Pokedex' code='https://github.com/Marquiiim/Pokedex' hosting='https://marquiiim.github.io/pokedex/' tec='JS, React, CSS, HTML, SASS' />,
-        
+
         <Cards img={LojaCelular} name='Loja de celular' code='https://github.com/Marquiiim/loja-iphone' hosting='https://marquiiim.github.io/loja-iphone/' tec='JS, React, CSS, HTML, SASS' />,
 
         <Cards img={Costs} name='Costs' code='https://github.com/Marquiiim/costs-project' hosting='https://marquiiim.github.io/costs-project/' tec='JS, React, CSS, HTML, SASS' />,
@@ -33,9 +35,9 @@ function Projects() {
 
         <Cards img={PortAntigo} name='Portfolio Antigo' code='https://github.com/Marquiiim/portfolio' hosting='https://marquiiim.github.io/portfolio/' tec='JS, CSS, HTML' />,
 
-        <Cards img={PortAntigo} name='Banco Marquim' code='https://github.com/Marquiiim/banco-marquim' tec='PY' />,
+        <Cards img={Pythonimg} name='Banco Marquim' code='https://github.com/Marquiiim/banco-marquim' tec='PY' />,
 
-        <Cards img={PortAntigo} name='CD 342 - Equipamentos' code='https://github.com/Marquiiim/Sistema-CD-342' tec='JS, CSS, HTML, SASS, MySQL, Express, Axios' />,
+        <Cards img={CD342} name='CD 342 - Equipamentos' code='https://github.com/Marquiiim/Sistema-CD-342' tec='JS, CSS, HTML, SASS, React, MySQL, Express, Axios' />,
     ]
 
     const next = () => {

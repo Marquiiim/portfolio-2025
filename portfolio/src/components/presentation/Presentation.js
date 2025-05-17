@@ -17,7 +17,7 @@ function Presentation() {
                     Desenvolvedor Front-End
                 </p>
                 <span>
-                    <a href='https://drive.google.com/file/d/1G3vtO0MIEliWYJAGikMRCSiPjn50jvEW/view?usp=sharing'>
+                    <a href='https://drive.google.com/file/d/1cYK5rU-4c5iRzucwE_70ZKTAuzPJ6a8N/view?usp=drive_link'>
                         <IoClipboardSharp className={styles.social} />
                     </a>
                 </span>
