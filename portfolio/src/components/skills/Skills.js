@@ -46,6 +46,9 @@ function Skills() {
                         <li>
                             SASS/SCSS <span>Intermediário</span>
                         </li>
+                        <li>
+                            MySQL <span>Intermediário</span>
+                        </li>
                     </ul>
                 </section>
                 <section className={styles.category}>
@@ -63,10 +66,10 @@ function Skills() {
                             Programação Orientada a Objetos <span>Intermediário</span>
                         </li>
                         <li>
-                            POO Python <span>Básico</span>
+                            POO Python <span>Intermediário</span>
                         </li>
                         <li>
-                            Interface Gráfica Utilizando Python - Kivy<span>Básico</span>
+                            Interface Gráfica Utilizando Python - Kivy<span>Iniciante</span>
                         </li>
                         <li>
                             Git e GitHub <span>Avançado</span>

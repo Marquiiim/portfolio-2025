@@ -7,6 +7,7 @@
 }
 .skills .title {
   text-align: center;
+  margin-top: 5rem;
 }
 .skills .title h1 {
   font-size: 2.5rem;
@@ -17,11 +18,10 @@
   flex-wrap: wrap;
   justify-content: center;
   padding: 4rem;
-  gap: 5rem;
+  gap: 0.6rem;
 }
 .skills .content .category {
   width: calc(45% - 1rem);
-  gap: 10px;
   color: white;
 }
 .skills .content .category h2 {

@@ -19,13 +19,23 @@ function Projects() {
     const [currentIndex, setCurrentIndex] = useState(0)
 
     const items = [
-        <Cards img={Pokedex} name='Pokedex' code='https://github.com/Marquiiim/Pokedex' hosting='https://marquiiim.github.io/pokedex/' tec='JS, React, CSS, HTML, Sass' />,
-        <Cards img={LojaCelular} name='Loja de celular' code='https://github.com/Marquiiim/loja-iphone' hosting='https://marquiiim.github.io/loja-iphone/' tec='JS, React, CSS, HTML, Sass' />,
-        <Cards img={Costs} name='Costs' code='https://github.com/Marquiiim/costs-project' hosting='https://marquiiim.github.io/costs-project/' tec='JS, React, CSS, HTML, Sass' />,
-        <Cards img={LuxureStore} name='Luxure Store' code='https://github.com/Marquiiim/luxure-store' hosting='' tec='JS, React, CSS, HTML, Sass' />,
-        <Cards img={Concessionaria} name='Concessionária' code='https://github.com/Marquiiim/loja-veiculos' hosting='' tec='JS, React, CSS, HTML, Sass' />,
+        <Cards img={Pokedex} name='Pokedex' code='https://github.com/Marquiiim/Pokedex' hosting='https://marquiiim.github.io/pokedex/' tec='JS, React, CSS, HTML, SASS' />,
+        
+        <Cards img={LojaCelular} name='Loja de celular' code='https://github.com/Marquiiim/loja-iphone' hosting='https://marquiiim.github.io/loja-iphone/' tec='JS, React, CSS, HTML, SASS' />,
+
+        <Cards img={Costs} name='Costs' code='https://github.com/Marquiiim/costs-project' hosting='https://marquiiim.github.io/costs-project/' tec='JS, React, CSS, HTML, SASS' />,
+
+        <Cards img={LuxureStore} name='Luxure Store' code='https://github.com/Marquiiim/luxure-store' hosting='' tec='JS, React, CSS, HTML, SASS' />,
+
+        <Cards img={Concessionaria} name='Concessionária' code='https://github.com/Marquiiim/loja-veiculos' hosting='' tec='JS, React, CSS, HTML, SASS' />,
+
         <Cards img={CadastroUsuarios} name='Cadastro de Usuários' code='https://github.com/Marquiiim/cadastro-usuarios' hosting='' tec='JS, React, MongoDB, Axios, CSS, HTML' />,
+
         <Cards img={PortAntigo} name='Portfolio Antigo' code='https://github.com/Marquiiim/portfolio' hosting='https://marquiiim.github.io/portfolio/' tec='JS, CSS, HTML' />,
+
+        <Cards img={PortAntigo} name='Banco Marquim' code='https://github.com/Marquiiim/banco-marquim' tec='PY' />,
+
+        <Cards img={PortAntigo} name='CD 342 - Equipamentos' code='https://github.com/Marquiiim/Sistema-CD-342' tec='JS, CSS, HTML, SASS, MySQL, Express, Axios' />,
     ]
 
     const next = () => {
