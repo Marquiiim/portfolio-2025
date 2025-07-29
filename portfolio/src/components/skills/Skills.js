@@ -35,19 +35,25 @@ function Skills() {
                             React <span>Intermediário</span>
                         </li>
                         <li>
-                            Angular <span>Iniciante</span>
-                        </li>
-                        <li>
                             HTML5 <span>Avançado</span>
                         </li>
                         <li>
                             CSS3 <span>Avançado</span>
                         </li>
                         <li>
-                            SASS/SCSS <span>Intermediário</span>
+                            SASS <span>Intermediário</span>
+                        </li>
+                        <li>
+                            Bootstrap <span>Básico</span>
                         </li>
                         <li>
                             MySQL <span>Intermediário</span>
+                        </li>
+                        <li>
+                            Axios <span>Intermediário</span>
+                        </li>
+                        <li>
+                            Express <span>Intermediário</span>
                         </li>
                     </ul>
                 </section>
@@ -66,12 +72,6 @@ function Skills() {
                             Programação Orientada a Objetos <span>Intermediário</span>
                         </li>
                         <li>
-                            POO Python <span>Intermediário</span>
-                        </li>
-                        <li>
-                            Interface Gráfica Utilizando Python - Kivy<span>Iniciante</span>
-                        </li>
-                        <li>
                             Git e GitHub <span>Avançado</span>
                         </li>
                     </ul>
@@ -82,16 +82,13 @@ function Skills() {
                     </h2>
                     <ul>
                         <li>
-                            Fundamentos de Desenvolvimento web <span>Avançado</span>
-                        </li>
-                        <li>
-                            Noções Básicas de Programação <span>Avançado</span>
-                        </li>
-                        <li>
-                            Introdução ao Desenvolvimento web <span>Avançado</span>
+                            Fundamentos de Desenvolvimento <span>Avançado</span>
                         </li>
                         <li>
                             Pensamento Computacional <span>Avançado</span>
+                        </li>
+                        <li>
+                            API Rest <span>Avançado</span>
                         </li>
                     </ul>
                 </section>
