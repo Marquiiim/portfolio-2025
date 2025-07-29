@@ -26,7 +26,7 @@ function Projects() {
 
         <Cards img={Pythonimg} name='Projeto Banco' code='https://github.com/Marquiiim/banco-marquim' tec='PY' />,
 
-        <Cards img={Barbearia} name='Projeto BarberControl' code='https://github.com/Marquiiim/Sistema-CD-342' tec='JS, CSS, HTML, SASS, React, MySQL, Express, Axios' />,
+        <Cards img={Barbearia} name='Projeto BarberControl' code='https://github.com/Marquiiim/marcos-barbearia' tec='JS, CSS, HTML, SASS, React, MySQL, Express, Axios' />,
 
         <Cards img={CD342} name='Projeto PatrimonyControl' code='https://github.com/Marquiiim/Sistema-CD-342' tec='JS, CSS, HTML, SASS, React, MySQL, Express, Axios' />,
     ]
