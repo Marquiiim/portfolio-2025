@@ -2,7 +2,7 @@ import styles from './Contact.module.css'
 
 import emailjs from '@emailjs/browser'
 
-import React, { useState, useRef } from 'react'
+import { useState, useRef } from 'react'
 
 function Contact() {
 
@@ -18,7 +18,6 @@ function Contact() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
 
         emailjs.send("gmailMessage", "template_y79vj6q", templateParams, "3lH4px3VlXawkSLIy")
             .then((response) => {

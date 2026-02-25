@@ -4,12 +4,10 @@ import { FiArrowLeft, FiArrowRight } from 'react-icons/fi'
 
 import { useState } from 'react'
 
-import Pokedex from '../../img/Pokedex.png'
 import LuxureStore from '../../img/Luxure_Store.png'
 import Concessionaria from '../../img/Loja_Veiculos.png'
 import CD342 from '../../img/CD_342.png'
 import Barbearia from '../../img/Barbearia.png'
-import Pythonimg from '../../img/Python_image.png'
 
 import Cards from './cards/cards'
 
@@ -18,13 +16,9 @@ function Projects() {
     const [currentIndex, setCurrentIndex] = useState(0)
 
     const items = [
-        <Cards img={Pokedex} name='Projeto Pokedex' code='https://github.com/Marquiiim/Pokedex' hosting='https://marquiiim.github.io/pokedex/' tec='JS, React, CSS, HTML, SASS' />,
-
         <Cards img={LuxureStore} name='Projeto Luxure Store' code='https://github.com/Marquiiim/luxure-store' hosting='' tec='JS, React, CSS, HTML, SASS' />,
 
         <Cards img={Concessionaria} name='Projeto AutoManager' code='https://github.com/Marquiiim/loja-veiculos' hosting='' tec='JS, CSS, HTML, SASS, React, MySQL, Express, Axios' />,
-
-        <Cards img={Pythonimg} name='Projeto BankSystem' code='https://github.com/Marquiiim/banco-marquim' tec='PY' />,
 
         <Cards img={Barbearia} name='Projeto BarberControl' code='https://github.com/Marquiiim/marcos-barbearia' tec='JS, CSS, HTML, SASS, React, MySQL, Express, Axios' />,
 

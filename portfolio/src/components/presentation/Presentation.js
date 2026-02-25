@@ -1,39 +1,36 @@
 import styles from './Presentation.module.css'
-import logo from '../../img/4882524.png'
 
 import { DiGithubBadge } from "react-icons/di";
 import { FaLinkedin } from 'react-icons/fa'
 import { IoClipboardSharp } from "react-icons/io5";
 
 function Presentation() {
-
     return (
         <section className={styles.presentation}>
-            <div>
+            <div className={styles.content}>
                 <h1>
                     Marcos Gabriel
                 </h1>
                 <p>
-                    Desenvolvedor Front-End
+                    Desenvolvedor de Software
                 </p>
-                <span>
-                    <a href='https://drive.google.com/file/d/1cYK5rU-4c5iRzucwE_70ZKTAuzPJ6a8N/view?usp=drive_link'>
-                        <IoClipboardSharp className={styles.social} />
-                    </a>
-                </span>
-                <span>
-                    <a href='https://www.linkedin.com/in/marcos-gabriel-05287a322/'>
-                        <FaLinkedin className={styles.social} />
-                    </a>
-                </span>
-                <span>
-                    <a href='https://github.com/Marquiiim'>
-                        <DiGithubBadge className={styles.social} />
-                    </a>
-                </span>
-            </div>
-            <div>
-                <img src={logo} alt="Logo" />
+                <div className={styles.socialContainer}>
+                    <span data-tooltip='Currículo'>
+                        <a href='https://drive.google.com/file/d/1oiECJhHEthjhf5Lxk-PBI7frEF06bYuS/view?usp=sharing'>
+                            <IoClipboardSharp className={styles.social} />
+                        </a>
+                    </span>
+                    <span data-tooltip='LinkedIn'>
+                        <a href='https://www.linkedin.com/in/marcos-gabriel-05287a322/'>
+                            <FaLinkedin className={styles.social} />
+                        </a>
+                    </span>
+                    <span data-tooltip='Github'>
+                        <a href='https://github.com/Marquiiim'>
+                            <DiGithubBadge className={styles.social} />
+                        </a>
+                    </span>
+                </div>
             </div>
         </section>
     )

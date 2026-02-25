@@ -1,35 +1,283 @@
-.sobremim {
+$primary-color: #4169e1;
+$primary-alpha: #4169e1af;
+$text-color: white;
+$text-secondary: rgba(255, 255, 255, 0.9);
+$bg-gradient: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(20, 20, 40, 0.98) 100%);
+$card-bg: rgba(255, 255, 255, 0.03);
+$border-color: rgba(65, 105, 225, 0.2);
+
+@mixin flex-center($direction: column) {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    gap: 3rem;
-    height: 100vh;
-    color: white;
+    flex-direction: $direction;
+}
 
-    div {
+@mixin glow-effect($color) {
+    box-shadow: 0 0 20px rgba($color, 0.5);
+}
+
+@mixin underline-animation($color) {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: $color;
+    border-radius: 2px;
+    box-shadow: 0 0 10px $color;
+}
+
+@mixin responsive-font($min, $max, $viewport: 5vw) {
+    font-size: clamp(#{$min}, #{$viewport}, #{$max});
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sobremim {
+    @include flex-center(column);
+    text-align: center;
+    gap: 2rem;
+    min-height: 100vh;
+    color: $text-color;
+    padding: 2rem 1.5rem;
+    background: $bg-gradient;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba($primary-color, 0.1) 0%, transparent 70%);
+        animation: rotate 20s linear infinite;
+        z-index: 0;
+    }
+
+    >div:first-child {
+        position: relative;
+        z-index: 1;
+        animation: fadeInUp 0.8s ease-out;
 
         h1 {
-            font-size: 2.5rem;
-            color: #4169e1af;
+            @include responsive-font(2rem, 3.5rem);
+            color: $primary-color;
+            text-shadow: 0 0 20px rgba($primary-color, 0.5);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+
+            &::after {
+                @include underline-animation($primary-color);
+            }
         }
     }
 
-    div {
+    >div:last-child {
+        position: relative;
+        z-index: 1;
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
-        max-width: 800px;
-
+        gap: 1.8rem;
+        max-width: min(800px, 90%);
+        background: $card-bg;
+        backdrop-filter: blur(10px);
+        padding: 2.5rem;
+        border-radius: 20px;
+        border: 1px solid $border-color;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        animation: fadeInUp 0.8s ease-out 0.2s both;
 
         p {
-            font-size: 1.3rem;
+            @include responsive-font(1rem, 1.25rem);
+            line-height: 1.8;
+            color: $text-secondary;
+            text-align: justify;
+            margin: 0;
 
             strong {
-                color: #4169e1af;
+                color: $primary-color;
+                font-weight: 600;
+                position: relative;
+                display: inline-block;
+                transition: all 0.3s ease;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    background: linear-gradient(90deg, transparent, $primary-color, transparent);
+                    transform: scaleX(0);
+                    transition: transform 0.3s ease;
+                }
+
+                &:hover {
+                    transform: translateY(-2px);
+                    text-shadow: 0 5px 15px rgba($primary-color, 0.6);
+
+                    &::after {
+                        transform: scaleX(1);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin tablet {
+    @media (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: 480px) {
+        @content;
+    }
+}
+
+@mixin large-screen {
+    @media (min-width: 1400px) {
+        @content;
+    }
+}
+
+@mixin landscape {
+    @media (max-height: 600px) and (orientation: landscape) {
+        @content;
+    }
+}
+
+@include tablet {
+    .sobremim {
+        gap: 1.5rem;
+        padding: 2rem 1rem;
+
+        >div:last-child {
+            padding: 1.8rem;
+            gap: 1.2rem;
+
+            p {
+                line-height: 1.6;
+                text-align: left;
+            }
+        }
+    }
+}
+
+@include mobile {
+    .sobremim {
+        padding: 1.5rem 0.8rem;
+
+        >div:first-child {
+            h1 {
+                font-size: 2rem;
+
+                &::after {
+                    width: 40px;
+                    height: 2px;
+                }
             }
         }
 
+        >div:last-child {
+            padding: 1.5rem;
+            gap: 1rem;
+            border-radius: 15px;
+
+            p {
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+        }
     }
+}
+
+@include large-screen {
+    .sobremim>div:last-child {
+        max-width: 900px;
+        padding: 3rem;
+
+        p {
+            font-size: 1.3rem;
+            line-height: 2;
+        }
+    }
+}
+
+@include landscape {
+    .sobremim {
+        min-height: 120vh;
+        padding: 3rem 1rem;
+
+        >div:last-child {
+            padding: 1.2rem;
+
+            p {
+                font-size: 0.9rem;
+            }
+        }
+    }
+}
+
+.light-theme {
+    &.sobremim {
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        color: #333;
+
+        &::before {
+            background: radial-gradient(circle, rgba($primary-color, 0.05) 0%, transparent 70%);
+        }
+
+        >div:last-child {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba($primary-color, 0.3);
+
+            p {
+                color: #444;
+
+                strong {
+                    color: $primary-color;
+                }
+            }
+        }
+    }
+}
+
+.highlight {
+    color: $primary-color;
+    font-weight: bold;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, $primary-color, lighten($primary-color, 20%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }

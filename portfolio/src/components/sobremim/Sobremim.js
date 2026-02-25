@@ -10,8 +10,9 @@ function Sobremim() {
                 </h1>
             </div>
             <div>
-                <p>Sou <strong>Marcos</strong>, tenho <strong>19 anos</strong> e curso <strong>Análise e Desenvolvimento de Sistemas</strong>. Atuo como <strong>desenvolvedor</strong> nas áreas de <strong>software</strong> e <strong>web</strong>, com domínio em tecnologias como <strong>HTML5</strong>, <strong>CSS3</strong>, <strong>SASS</strong>, <strong>JavaScript</strong>, <strong>Bootstrap</strong>, <strong>Axios</strong>, <strong>Express</strong>, <strong>Python</strong>, <strong>ReactJS</strong>, <strong>Node.js</strong> e <strong>MySQL</strong>. Tenho interesse tanto em <strong>estilização</strong> quanto em <strong>lógica de programação</strong>, buscando sempre criar soluções <strong>funcionais</strong>, <strong>intuitivas</strong> e com boa <strong>experiência para o usuário</strong>.</p> <p>Atualmente, meu foco é aprimorar minhas <strong>habilidades técnicas</strong> e <strong>criativas</strong>, explorando ao máximo as ferramentas que utilizo para escrever <strong>códigos limpos</strong> e desenvolver <strong>layouts responsivos</strong>. Meu objetivo é atuar em <strong>projetos colaborativos</strong>, ganhar <strong>experiência prática</strong> no mercado e contribuir com equipes no desenvolvimento de <strong>soluções reais</strong> e <strong>eficientes</strong>.</p>
-            </div>
+                <p>Sou <strong>desenvolvedor Node.js</strong>, organizado e comprometido com <strong>boas práticas de desenvolvimento</strong>. Possuo experiência na criação de <strong>APIs REST</strong> e <strong>arquiteturas de microserviços</strong>, utilizando <strong>JavaScript</strong>, com foco em <strong>código limpo</strong>, <strong>bem estruturado</strong> e de <strong>fácil manutenção</strong>, entre outras tecnologias.</p>
+
+                <p>Atuo também com <strong>MySQL</strong> e <strong>MongoDB</strong>, buscando sempre <strong>eficiência</strong> e <strong>qualidade</strong> nas soluções entregues. Não me limito apenas às tecnologias que utilizo no dia a dia: sou <strong>curioso</strong>, estou em <strong>constante aprendizado</strong> e aberto a <strong>novos desafios</strong> e <strong>ferramentas</strong>.</p>            </div>
         </section>
     )
 }

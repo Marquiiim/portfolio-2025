@@ -1,24 +1,80 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 .container {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #0a0a0f, #1a1a2e);
+  position: relative;
+  overflow: hidden;
 }
-.container div {
+.container::before {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle at 70% 30%, rgba(65, 105, 225, 0.05) 0%, transparent 50%);
+  animation: rotate 20s linear infinite;
+  z-index: 0;
+}
+.container > div:first-child {
   text-align: center;
+  margin: 2rem 0 3rem;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 0.8s ease-out;
 }
-.container div h1 {
-  font-size: 2.5rem;
-  color: rgba(65, 105, 225, 0.6862745098);
+.container > div:first-child h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: #4169e1;
+  text-shadow: 0 0 20px rgba(65, 105, 225, 0.5);
+  position: relative;
+  display: inline-block;
+}
+.container > div:first-child h1::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: #4169e1;
+  border-radius: 2px;
+  box-shadow: 0 0 10px #4169e1;
 }
 .container .content {
   width: 100%;
+  max-width: 1400px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4rem;
-  gap: 2rem;
+  gap: clamp(0.5rem, 2vw, 2rem);
+  padding: clamp(1rem, 3vw, 4rem);
+  position: relative;
+  z-index: 1;
 }
 .container .content .carousel {
   display: flex;
@@ -26,15 +82,175 @@
   justify-content: center;
   width: 100%;
   gap: 1.5rem;
+  perspective: 1000px;
+}
+.container .content .carousel > div {
+  flex: 0 0 calc(33.33% - 1rem);
+  max-width: 400px;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.5s ease-out;
+}
+.container .content .carousel > div:hover {
+  transform: translateY(-10px) scale(1.02);
+  z-index: 2;
 }
 .container .content .arrow_right,
 .container .content .arrow_left {
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-size: 3rem;
-  color: rgba(65, 105, 225, 0.6862745098);
-  background-color: transparent;
-  border: none;
+  justify-content: center;
+  flex-direction: row;
+  font-size: clamp(2rem, 2vw, 3rem);
+  color: #4169e1;
+  background: rgba(65, 105, 225, 0.1);
+  border: 2px solid rgba(65, 105, 225, 0.3);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+  backdrop-filter: blur(5px);
+}
+.container .content .arrow_right:hover,
+.container .content .arrow_left:hover {
+  background: #4169e1;
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(65, 105, 225, 0.5);
+  border-color: transparent;
+}
+.container .content .arrow_right:hover svg,
+.container .content .arrow_left:hover svg {
+  animation: pulse 1s infinite;
+}
+.container .content .arrow_right:active,
+.container .content .arrow_left:active {
+  transform: scale(0.95);
+}
+.container .content .arrow_right:disabled,
+.container .content .arrow_left:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+.container .content .arrow_right svg,
+.container .content .arrow_left svg {
+  transition: all 0.3s ease;
+}
+.container .indicators {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  z-index: 1;
+  position: relative;
+}
+.container .indicators .indicator {
+  width: 40px;
+  height: 4px;
+  background: rgba(65, 105, 225, 0.2);
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.container .indicators .indicator:hover {
+  background: rgba(65, 105, 225, 0.5);
+}
+.container .indicators .indicator.active {
+  background: #4169e1;
+  box-shadow: 0 0 10px #4169e1;
+  width: 60px;
+}
+
+@media (max-width: 1024px) {
+  .container .content .carousel > div {
+    flex: 0 0 calc(50% - 1rem);
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  .container > div:first-child {
+    margin: 1rem 0 2rem;
+  }
+  .container > div:first-child h1 {
+    font-size: 2.2rem;
+  }
+  .container .content {
+    gap: 0.5rem;
+  }
+  .container .content .carousel {
+    gap: 1rem;
+  }
+  .container .content .carousel > div {
+    flex: 0 0 calc(100% - 2rem);
+  }
+  .container .content .arrow_right,
+  .container .content .arrow_left {
+    width: 45px;
+    height: 45px;
+    font-size: 1.8rem;
+    position: absolute;
+    background: rgba(65, 105, 225, 0.2);
+  }
+  .container .content .arrow_right.arrow_left,
+  .container .content .arrow_left.arrow_left {
+    left: 5px;
+  }
+  .container .content .arrow_right.arrow_right,
+  .container .content .arrow_left.arrow_right {
+    right: 5px;
+  }
+  .container .indicators {
+    margin-top: 3rem;
+  }
+}
+@media (max-width: 480px) {
+  .container > div:first-child h1 {
+    font-size: 2rem;
+  }
+  .container > div:first-child h1::after {
+    width: 60px;
+  }
+  .container .content .arrow_right,
+  .container .content .arrow_left {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+  .container .indicators .indicator {
+    width: 30px;
+  }
+  .container .indicators .indicator.active {
+    width: 45px;
+  }
+}
+@media (min-width: 1600px) {
+  .container .content {
+    max-width: 1800px;
+  }
+  .container .content .carousel > div {
+    max-width: 500px;
+  }
+}
+@media (max-height: 600px) and (orientation: landscape) {
+  .container {
+    min-height: auto;
+    padding: 2rem 1rem;
+  }
+  .container > div:first-child {
+    margin: 0.5rem 0 1.5rem;
+  }
+  .container .content .carousel > div {
+    flex: 0 0 calc(33.33% - 1rem);
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }/*# sourceMappingURL=Projects.module.css.map */

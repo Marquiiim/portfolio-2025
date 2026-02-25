@@ -1,49 +1,327 @@
+@charset "UTF-8";
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #0a0a0f, #1a1a2e);
+  position: relative;
+  overflow: hidden;
+}
+.container::before {
+  content: "";
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle at 30% 50%, rgba(65, 105, 225, 0.05) 0%, transparent 50%);
+  animation: rotate 20s linear infinite;
+  z-index: 0;
+}
+.container::after {
+  content: "✉️";
+  position: absolute;
+  font-size: 15rem;
+  opacity: 0.02;
+  bottom: -10%;
+  right: -5%;
+  transform: rotate(15deg);
+  pointer-events: none;
+}
+.container .content {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(65, 105, 225, 0.2);
+  max-width: 600px;
+  width: 100%;
+  padding: 3rem;
+  border-radius: 30px;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 0.8s ease-out;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+}
+.container .content .title {
+  text-align: center;
+  margin-bottom: 3rem;
 }
 .container .content .title h1 {
-  font-size: 2.5rem;
-  color: rgba(65, 105, 225, 0.6862745098);
-  text-align: center;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #4169e1;
+  text-shadow: 0 0 20px rgba(65, 105, 225, 0.5);
+  position: relative;
+  display: inline-block;
+}
+.container .content .title h1::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: #4169e1;
+  border-radius: 2px;
+  box-shadow: 0 0 10px #4169e1;
 }
 .container .content form {
   display: flex;
   flex-direction: column;
-  padding: 4rem;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 .container .content form label {
-  font-size: 20px;
-  text-align: center;
-  color: rgba(65, 105, 225, 0.6862745098);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: -1rem;
+  transition: all 0.3s ease;
 }
-.container .content form input {
-  border-radius: 0.3rem;
-  border: 1px solid rgba(65, 105, 225, 0.6862745098);
-  background-color: rgba(255, 255, 255, 0.893);
-  padding: 7px;
-  text-align: center;
+.container .content form label::before {
+  content: "✦";
+  color: #4169e1;
+  margin-right: 0.5rem;
+  font-size: 0.8rem;
+}
+.container .content form input,
+.container .content form textarea {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(65, 105, 225, 0.1);
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+.container .content form input:focus,
+.container .content form textarea:focus {
+  border-color: #4169e1;
+  box-shadow: 0 0 20px rgba(65, 105, 225, 0.3);
+  background: rgba(65, 105, 225, 0.05);
+}
+.container .content form input::-moz-placeholder, .container .content form textarea::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+.container .content form input::placeholder,
+.container .content form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.3);
 }
 .container .content form textarea {
-  border-radius: 0.3rem;
-  border: 1px solid rgba(65, 105, 225, 0.6862745098);
-  background-color: rgba(255, 255, 255, 0.893);
-  padding: 7px;
-  text-align: center;
+  min-height: 150px;
+  resize: vertical;
+  font-family: inherit;
 }
 .container .content form button {
-  padding: 0.5rem;
-  border-radius: 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #4169e1, rgb(32.5909090909, 76.0454545455, 206.4090909091));
+  color: white;
   border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+.container .content form button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent 70%);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease;
 }
 .container .content form button:hover {
-  background-color: rgba(65, 105, 225, 0.6862745098);
-  color: white;
-  cursor: pointer;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(65, 105, 225, 0.4);
+}
+.container .content form button:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+.container .content form button:hover svg {
+  animation: float 1s ease infinite;
 }
 .container .content form button:active {
-  opacity: 0.8;
+  transform: translateY(0);
+}
+.container .content form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.container .content form button:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+.container .content form button svg {
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+.container .success-message,
+.container .error-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  animation: fadeInUp 0.3s ease;
+}
+.container .success-message svg,
+.container .error-message svg {
+  font-size: 1.2rem;
+}
+.container .success-message {
+  background: rgba(81, 207, 102, 0.1);
+  border: 1px solid rgba(81, 207, 102, 0.3);
+  color: #51cf66;
+}
+.container .error-message {
+  background: rgba(255, 107, 107, 0.1);
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  color: #ff6b6b;
+  animation: shake 0.5s ease;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  .container .content {
+    padding: 2rem;
+  }
+  .container .content .title {
+    margin-bottom: 2rem;
+  }
+  .container .content form {
+    gap: 1.2rem;
+  }
+  .container .content form input,
+  .container .content form textarea {
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+  }
+  .container .content form button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  .container .content {
+    padding: 1.5rem;
+  }
+  .container .content .title h1 {
+    font-size: 2rem;
+  }
+  .container .content form label {
+    font-size: 0.9rem;
+  }
+  .container .content form input,
+  .container .content form textarea {
+    padding: 0.7rem 0.9rem;
+    font-size: 0.9rem;
+  }
+  .container .content form button {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.95rem;
+  }
+}
+@media (max-height: 600px) and (orientation: landscape) {
+  .container {
+    min-height: auto;
+    padding: 2rem 1rem;
+  }
+  .container .content {
+    padding: 1.5rem;
+  }
+  .container .content form {
+    gap: 1rem;
+  }
+  .container .content form textarea {
+    min-height: 100px;
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.loading {
+  position: relative;
+  cursor: wait;
+}
+.loading::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  right: 1rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.input-error {
+  border-color: #ff6b6b !important;
+}
+.input-error:focus {
+  box-shadow: 0 0 20px rgba(255, 107, 107, 0.3) !important;
+}
+
+.error-text {
+  color: #ff6b6b;
+  font-size: 0.85rem;
+  margin-top: -0.5rem;
+  padding-left: 1rem;
 }/*# sourceMappingURL=Contact.module.css.map */

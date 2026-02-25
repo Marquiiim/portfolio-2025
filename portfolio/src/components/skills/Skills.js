@@ -19,60 +19,52 @@ function Skills() {
                             JavaScript <span>Intermediário</span>
                         </li>
                         <li>
-                            Python <span>Básico</span>
-                        </li>
-                        <li>
-                            TypeScript <span>Iniciante</span>
+                            TypeScript <span>Básico</span>
                         </li>
                     </ul>
                 </section>
                 <section className={styles.category}>
                     <h2>
-                        Tecnologias
+                        Backend
+                    </h2>
+                    <ul>
+                        <li>
+                            Node + Bibliotecas <span>Intermediário</span>
+                        </li>
+                        <li>
+                            Express <span>Intermediário</span>
+                        </li>
+                        <li>
+                            Nest <span>Básico</span>
+                        </li>
+                    </ul>
+                </section>
+                <section className={styles.category}>
+                    <h2>
+                        Frontend
                     </h2>
                     <ul>
                         <li>
                             React <span>Intermediário</span>
                         </li>
                         <li>
-                            HTML5 <span>Avançado</span>
-                        </li>
-                        <li>
-                            CSS3 <span>Avançado</span>
-                        </li>
-                        <li>
-                            SASS <span>Intermediário</span>
+                            Sass <span>Básico</span>
                         </li>
                         <li>
                             Bootstrap <span>Básico</span>
-                        </li>
-                        <li>
-                            MySQL <span>Intermediário</span>
-                        </li>
-                        <li>
-                            Axios <span>Intermediário</span>
-                        </li>
-                        <li>
-                            Express <span>Intermediário</span>
                         </li>
                     </ul>
                 </section>
                 <section className={styles.category}>
                     <h2>
-                        Básico
+                        Banco de dados
                     </h2>
                     <ul>
                         <li>
-                            Lógica de Programação <span>Avançado</span>
+                            MySQL <span>Intermediário</span>
                         </li>
                         <li>
-                            Algoritmos <span>Avançado</span>
-                        </li>
-                        <li>
-                            Programação Orientada a Objetos <span>Intermediário</span>
-                        </li>
-                        <li>
-                            Git e GitHub <span>Avançado</span>
+                            MongoDB <span>Básico</span>
                         </li>
                     </ul>
                 </section>
@@ -82,13 +74,19 @@ function Skills() {
                     </h2>
                     <ul>
                         <li>
-                            Fundamentos de Desenvolvimento <span>Avançado</span>
+                            Programação Orientada a Objetos <span>Intermediário</span>
                         </li>
                         <li>
-                            Pensamento Computacional <span>Avançado</span>
+                            Git e GitHub <span>Intermediário</span>
                         </li>
                         <li>
-                            API Rest <span>Avançado</span>
+                            Api'sRest <span>Intermediário</span>
+                        </li>
+                        <li>
+                            Microservices <span>Intermediário</span>
+                        </li>
+                        <li>
+                            Docker <span>Básico</span>
                         </li>
                     </ul>
                 </section>

@@ -1,55 +1,326 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
 .content {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(65, 105, 225, 0.2);
+  border-radius: 20px;
+  padding: 1.5rem;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
   gap: 1rem;
-  padding: 40px 0 50px 0;
-  border: 2.5px solid rgba(65, 105, 225, 0.6862745098);
-  border-radius: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  animation: fadeInUp 0.5s ease-out;
+}
+.content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(65, 105, 225, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+.content:hover {
+  transform: translateY(-10px);
+  border-color: #4169e1;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(65, 105, 225, 0.1);
+}
+.content:hover::before {
+  left: 100%;
+}
+.content:hover .photo_content {
+  transform: scale(1.05);
+}
+.content:hover .photo_content img {
+  filter: grayscale(0);
+}
+.content:hover .options {
+  animation: pulse 0.5s ease;
 }
 .content .photo_content {
-  width: 260px;
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 .content .photo_content img {
   width: 100%;
-  height: 9rem;
-  border-radius: 1rem;
-  border: 2.5px solid rgba(65, 105, 225, 0.6862745098);
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.3s ease;
+  filter: grayscale(30%);
 }
-.content p {
+.content .photo_content img:hover {
+  transform: scale(1.1);
+}
+.content > p {
   color: white;
-  font-weight: bold;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+  text-align: center;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+.content > p::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background: #4169e1;
+  border-radius: 1px;
 }
 .content .options_card {
   display: flex;
-  gap: 2rem;
-  padding: 1rem;
-  font-size: 1.5rem;
-  margin: 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 1.5rem;
+  margin: 0.5rem 0;
 }
 .content .options_card span a {
   text-decoration: none;
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
 }
-.content .options_card span a .options {
-  color: rgba(65, 105, 225, 0.6862745098);
+.content .options_card span a:hover {
+  color: #4169e1;
 }
-.content .options_card span a .options:hover {
-  color: white;
+.content .options_card span a:hover .options {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 10px #4169e1);
+}
+.content .options_card .options {
+  font-size: 2rem;
+  transition: all 0.3s ease;
   cursor: pointer;
+}
+.content .options_card .options:hover {
+  animation: float 1s ease infinite;
 }
 .content .technologies {
-  font-size: 11px;
-  color: rgba(137, 137, 137, 0.853);
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 1rem 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 .content .technologies .techn {
-  margin-right: 4px;
+  display: block;
+  color: rgba(137, 137, 137, 0.853);
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
 }
-.content .technologies .icon {
-  font-size: 1.2rem;
-  margin-left: 1.5px;
+.content .technologies > span:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.8rem;
 }
-.content .technologies .icon:hover {
-  color: rgba(65, 105, 225, 0.6862745098);
-  cursor: pointer;
+.content .technologies > span:last-child .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: 40px;
+  height: 40px;
+  background: rgba(65, 105, 225, 0.1);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+.content .technologies > span:last-child .icon svg {
+  font-size: 1.5rem;
+  color: #4169e1;
+  transition: all 0.3s ease;
+}
+@media (hover: hover) {
+  .content .technologies > span:last-child .icon:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(65, 105, 225, 0.3);
+  }
+  .content .technologies > span:last-child .icon:hover svg {
+    animation: pulse 0.5s ease;
+  }
+}
+.content .technologies > span:last-child .icon:has(svg[class*=DiJsBadge]) {
+  background: rgba(255, 193, 7, 0.1);
+}
+.content .technologies > span:last-child .icon:has(svg[class*=DiJsBadge]) svg {
+  color: #ffc107;
+}
+.content .technologies > span:last-child .icon:has(svg[class*=DiReact]) {
+  background: rgba(97, 218, 251, 0.1);
+}
+.content .technologies > span:last-child .icon:has(svg[class*=DiReact]) svg {
+  color: #61dafb;
+}
+.content .technologies > span:last-child .icon:has(svg[class*=DiSass]) {
+  background: rgba(204, 102, 153, 0.1);
+}
+.content .technologies > span:last-child .icon:has(svg[class*=DiSass]) svg {
+  color: #cc6699;
+}
+.content .technologies > span:last-child .icon:has(svg[class*=DiHtml5]) {
+  background: rgba(227, 76, 38, 0.1);
+}
+.content .technologies > span:last-child .icon:has(svg[class*=DiHtml5]) svg {
+  color: #e34c26;
+}
+.content .technologies > span:last-child .icon:has(svg[class*=DiCss3]) {
+  background: rgba(38, 77, 228, 0.1);
+}
+.content .technologies > span:last-child .icon:has(svg[class*=DiCss3]) svg {
+  color: #264de4;
+}
+.content .technologies > span:last-child .icon:has(svg[class*=DiMongodb]) {
+  background: rgba(71, 168, 78, 0.1);
+}
+.content .technologies > span:last-child .icon:has(svg[class*=DiMongodb]) svg {
+  color: #47a848;
+}
+.content .technologies > span:last-child .icon:has(svg[class*=SiAxios]) {
+  background: rgba(90, 42, 138, 0.1);
+}
+.content .technologies > span:last-child .icon:has(svg[class*=SiAxios]) svg {
+  color: #5a2a8a;
+}
+.content .technologies > span:last-child .icon:has(svg[class*=SiExpress]) {
+  background: rgba(255, 255, 255, 0.1);
+}
+.content .technologies > span:last-child .icon:has(svg[class*=SiExpress]) svg {
+  color: #ffffff;
+}
+.content .technologies > span:last-child .icon:has(svg[class*=SiMysql]) {
+  background: rgba(0, 117, 143, 0.1);
+}
+.content .technologies > span:last-child .icon:has(svg[class*=SiMysql]) svg {
+  color: #00758f;
+}
+.content .technologies > span:last-child .icon:has(svg[class*=SiPython]) {
+  background: rgba(55, 118, 171, 0.1);
+}
+.content .technologies > span:last-child .icon:has(svg[class*=SiPython]) svg {
+  color: #3776ab;
+}
+
+@media (max-width: 1024px) {
+  .content {
+    padding: 1.2rem;
+  }
+  .content .photo_content {
+    height: 180px;
+  }
+  .content > p {
+    font-size: 1.2rem;
+  }
+  .content .options_card .options {
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 768px) {
+  .content {
+    padding: 1rem;
+  }
+  .content .photo_content {
+    height: 160px;
+  }
+  .content > p {
+    font-size: 1.1rem;
+  }
+  .content .technologies .techn {
+    font-size: 0.8rem;
+  }
+  .content .technologies > span:last-child {
+    gap: 0.5rem;
+  }
+  .content .technologies > span:last-child .icon {
+    width: 35px;
+    height: 35px;
+  }
+  .content .technologies > span:last-child .icon svg {
+    font-size: 1.2rem;
+  }
+  .content .options_card {
+    gap: 1rem;
+  }
+  .content .options_card .options {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 480px) {
+  .content .photo_content {
+    height: 140px;
+  }
+  .content > p {
+    font-size: 1rem;
+  }
+  .content .technologies > span:last-child .icon {
+    width: 30px;
+    height: 30px;
+  }
+  .content .technologies > span:last-child .icon svg {
+    font-size: 1rem;
+  }
+  .content .options_card {
+    gap: 0.8rem;
+  }
+  .content .options_card .options {
+    font-size: 1.3rem;
+  }
+}
+@media (max-height: 600px) and (orientation: landscape) {
+  .content .photo_content {
+    height: 120px;
+  }
+  .content .technologies {
+    margin-top: 0.2rem;
+    padding: 0.5rem 0 0;
+  }
 }/*# sourceMappingURL=Cards.module.css.map */

@@ -1,27 +1,196 @@
+@charset "UTF-8";
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 2px 20px rgba(65, 105, 225, 0.2);
+  }
+  50% {
+    box-shadow: 0 2px 30px rgba(65, 105, 225, 0.4);
+  }
+}
 .navbar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: rgba(10, 10, 15, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(65, 105, 225, 0.2);
   position: fixed;
-  width: 100%;
-  height: 4rem;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 60px;
+  padding: 0.8rem 2rem;
+  z-index: 1000;
+  animation: fadeInDown 0.5s ease-out, glowPulse 3s infinite;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
 }
-.navbar .list_nav {
+.navbar::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, transparent 30%, #4169e1, transparent 70%);
+  border-radius: 62px;
+  z-index: -1;
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+}
+.navbar:hover::before {
+  opacity: 0.6;
+}
+
+.list_nav {
   display: flex;
-  position: relative;
-  gap: 4rem;
-}
-.navbar .list_nav li {
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  margin: 0;
+  padding: 0;
   list-style: none;
-  padding: 0.5rem;
-  border-bottom: 3.5px solid transparent;
-  transition: 0.3s border ease-in-out;
 }
-.navbar .list_nav li:hover {
-  border-bottom: 3.5px solid rgba(65, 105, 225, 0.6862745098);
-  cursor: pointer;
+.list_nav li {
+  position: relative;
 }
-.navbar .list_nav li a {
+.list_nav li a {
+  color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  transition: all 0.3s ease;
+  position: relative;
+  letter-spacing: 0.5px;
+}
+.list_nav li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 100%;
+  height: 2px;
+  background: #4169e1;
+  border-radius: 2px;
+  transition: transform 0.3s ease;
+  transform-origin: center;
+}
+.list_nav li a:hover {
   color: white;
+}
+.list_nav li a:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+.list_nav li a.active {
+  color: #4169e1;
+}
+.list_nav li a.active::after {
+  transform: translateX(-50%) scaleX(1);
+  box-shadow: 0 0 10px #4169e1;
+}
+.list_nav li.active::before {
+  content: "✦";
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #4169e1;
+  font-size: 0.8rem;
+  animation: floatStar 2s ease-in-out infinite;
+}
+
+@keyframes floatStar {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-3px);
+  }
+}
+@media (max-width: 768px) {
+  .navbar {
+    top: 1rem;
+    padding: 0.6rem 1.5rem;
+    width: 90%;
+    max-width: 500px;
+  }
+  .navbar .list_nav {
+    gap: 1.5rem;
+  }
+  .navbar .list_nav li a {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.5rem 1rem;
+  }
+  .navbar .list_nav {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .navbar .list_nav li a {
+    font-size: 0.9rem;
+    padding: 0.4rem 0;
+  }
+}
+@media (max-height: 600px) and (orientation: landscape) {
+  .navbar {
+    top: 0.5rem;
+    padding: 0.4rem 1.5rem;
+  }
+}
+.scrolled {
+  background: rgba(10, 10, 15, 0.98);
+  padding: 0.5rem 2rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.dark-theme .navbar {
+  background: rgba(0, 0, 0, 0.9);
+}
+.dark-theme .navbar .list_nav li a {
+  color: rgba(255, 255, 255, 0.7);
+}
+.dark-theme .navbar .list_nav li a:hover, .dark-theme .navbar .list_nav li a.active {
+  color: #4169e1;
+}
+
+.sidebar {
+  position: fixed;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(10, 10, 15, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(65, 105, 225, 0.2);
+  border-radius: 40px;
+  padding: 2rem 0.8rem;
+}
+.sidebar .list_nav {
+  flex-direction: column;
+  gap: 2rem;
+}
+.sidebar .list_nav li a {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+.sidebar .list_nav li a::after {
+  width: 2px;
+  height: 0;
+  left: -5px;
+  bottom: 50%;
+  transform: translateY(50%) scaleY(0);
+}
+.sidebar .list_nav li a:hover::after {
+  height: 100%;
+  transform: translateY(50%) scaleY(1);
 }/*# sourceMappingURL=Navbar.module.css.map */

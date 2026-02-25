@@ -1,69 +1,425 @@
-.content {
+$primary-color: #4169e1;
+$primary-alpha: #4169e1af;
+$text-primary: white;
+$text-secondary: rgba(255, 255, 255, 0.9);
+$text-muted: rgba(137, 137, 137, 0.853);
+$card-bg: rgba(255, 255, 255, 0.03);
+$border-color: rgba(65, 105, 225, 0.2);
+$hover-transform: translateY(-10px);
+
+@mixin flex-center($direction: row) {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    flex-direction: $direction;
+}
+
+@mixin glass-effect {
+    background: $card-bg;
+    backdrop-filter: blur(10px);
+    border: 1px solid $border-color;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.content {
+    @include glass-effect;
+    border-radius: 20px;
+    padding: 1.5rem;
+    display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1rem;
-    padding: 40px 0 50px 0;
-    border: 2.5px solid #4169e1af;
-    border-radius: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    animation: fadeInUp 0.5s ease-out;
 
-    .photo_content {
-        width: 260px;
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg,
+                transparent,
+                rgba($primary-color, 0.2),
+                transparent);
+        transition: left 0.5s ease;
+    }
 
-        img {
-            width: 100%;
-            height: 9rem;
-            border-radius: 1rem;
-            border: 2.5px solid #4169e1af;
+    &:hover {
+        transform: $hover-transform;
+        border-color: $primary-color;
+        box-shadow:
+            0 20px 40px rgba(0, 0, 0, 0.3),
+            0 0 0 2px rgba($primary-color, 0.1);
+
+        &::before {
+            left: 100%;
+        }
+
+        .photo_content {
+            transform: scale(1.05);
+
+            img {
+                filter: grayscale(0);
+            }
+        }
+
+        .options {
+            animation: pulse 0.5s ease;
         }
     }
 
-    p {
-        color: white;
-        font-weight: bold;
+    .photo_content {
+        width: 100%;
+        height: 200px;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s ease;
+            filter: grayscale(30%);
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    >p {
+        color: $text-primary;
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin: 0.5rem 0;
+        text-align: center;
+        position: relative;
+        padding-bottom: 0.5rem;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background: $primary-color;
+            border-radius: 1px;
+        }
     }
 
     .options_card {
-        display: flex;
-        gap: 2rem;
-        padding: 1rem;
-        font-size: 1.5rem;
-        margin: 0;
+        @include flex-center(row);
+        gap: 1.5rem;
+        margin: 0.5rem 0;
 
         span {
-
             a {
                 text-decoration: none;
+                color: $text-secondary;
+                transition: all 0.3s ease;
 
-                .options {
-                    color: #4169e1af;
+                &:hover {
+                    color: $primary-color;
 
-                    &:hover {
-                        color: white;
-                        cursor: pointer;
+                    .options {
+                        transform: scale(1.2);
+                        filter: drop-shadow(0 0 10px $primary-color);
                     }
                 }
+            }
+        }
+
+        .options {
+            font-size: 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+
+            &:hover {
+                animation: float 1s ease infinite;
             }
         }
     }
 
     .technologies {
-        font-size: 11px;
-        color: rgba(137, 137, 137, 0.853);
+        width: 100%;
+        margin-top: 0.5rem;
+        padding: 1rem 0 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
 
         .techn {
-            margin-right: 4px;
+            display: block;
+            color: $text-muted;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
         }
 
-        .icon {
-            font-size: 1.2rem;
-            margin-left: 1.5px;
+        >span:last-child {
+            @include flex-center(row);
+            flex-wrap: wrap;
+            gap: 0.8rem;
 
-            &:hover {
-                color: #4169e1af;
-                cursor: pointer;
+            .icon {
+                @include flex-center(row);
+                width: 40px;
+                height: 40px;
+                background: rgba($primary-color, 0.1);
+                border-radius: 50%;
+                transition: all 0.3s ease;
+                cursor: default;
+
+                svg {
+                    font-size: 1.5rem;
+                    color: $primary-color;
+                    transition: all 0.3s ease;
+                }
+
+                @media (hover: hover) {
+                    &:hover {
+                        transform: translateY(-3px);
+                        box-shadow: 0 5px 15px rgba($primary-color, 0.3);
+
+                        svg {
+                            animation: pulse 0.5s ease;
+                        }
+                    }
+                }
+
+                &:has(svg[class*="DiJsBadge"]) {
+                    background: rgba(255, 193, 7, 0.1);
+
+                    svg {
+                        color: #ffc107;
+                    }
+                }
+
+                &:has(svg[class*="DiReact"]) {
+                    background: rgba(97, 218, 251, 0.1);
+
+                    svg {
+                        color: #61dafb;
+                    }
+                }
+
+                &:has(svg[class*="DiSass"]) {
+                    background: rgba(204, 102, 153, 0.1);
+
+                    svg {
+                        color: #cc6699;
+                    }
+                }
+
+                &:has(svg[class*="DiHtml5"]) {
+                    background: rgba(227, 76, 38, 0.1);
+
+                    svg {
+                        color: #e34c26;
+                    }
+                }
+
+                &:has(svg[class*="DiCss3"]) {
+                    background: rgba(38, 77, 228, 0.1);
+
+                    svg {
+                        color: #264de4;
+                    }
+                }
+
+                &:has(svg[class*="DiMongodb"]) {
+                    background: rgba(71, 168, 78, 0.1);
+
+                    svg {
+                        color: #47a848;
+                    }
+                }
+
+                &:has(svg[class*="SiAxios"]) {
+                    background: rgba(90, 42, 138, 0.1);
+
+                    svg {
+                        color: #5a2a8a;
+                    }
+                }
+
+                &:has(svg[class*="SiExpress"]) {
+                    background: rgba(255, 255, 255, 0.1);
+
+                    svg {
+                        color: #ffffff;
+                    }
+                }
+
+                &:has(svg[class*="SiMysql"]) {
+                    background: rgba(0, 117, 143, 0.1);
+
+                    svg {
+                        color: #00758f;
+                    }
+                }
+
+                &:has(svg[class*="SiPython"]) {
+                    background: rgba(55, 118, 171, 0.1);
+
+                    svg {
+                        color: #3776ab;
+                    }
+                }
             }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .content {
+        padding: 1.2rem;
+
+        .photo_content {
+            height: 180px;
+        }
+
+        >p {
+            font-size: 1.2rem;
+        }
+
+        .options_card .options {
+            font-size: 1.8rem;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .content {
+        padding: 1rem;
+
+        .photo_content {
+            height: 160px;
+        }
+
+        >p {
+            font-size: 1.1rem;
+        }
+
+        .technologies {
+            .techn {
+                font-size: 0.8rem;
+            }
+
+            >span:last-child {
+                gap: 0.5rem;
+
+                .icon {
+                    width: 35px;
+                    height: 35px;
+
+                    svg {
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+        }
+
+        .options_card {
+            gap: 1rem;
+
+            .options {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        .photo_content {
+            height: 140px;
+        }
+
+        >p {
+            font-size: 1rem;
+        }
+
+        .technologies {
+            >span:last-child {
+                .icon {
+                    width: 30px;
+                    height: 30px;
+
+                    svg {
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+
+        .options_card {
+            gap: 0.8rem;
+
+            .options {
+                font-size: 1.3rem;
+            }
+        }
+    }
+}
+
+@media (max-height: 600px) and (orientation: landscape) {
+    .content {
+        .photo_content {
+            height: 120px;
+        }
+
+        .technologies {
+            margin-top: 0.2rem;
+            padding: 0.5rem 0 0;
         }
     }
 }

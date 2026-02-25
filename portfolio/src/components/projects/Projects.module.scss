@@ -1,26 +1,113 @@
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
+$primary-color: #4169e1;
+$primary-alpha: #4169e1af;
+$text-primary: white;
+$text-secondary: rgba(255, 255, 255, 0.9);
+$bg-gradient: linear-gradient(135deg, #0a0a0f, #1a1a2e);
+$card-bg: rgba(255, 255, 255, 0.03);
+$border-color: rgba(65, 105, 225, 0.2);
 
-    div {
+@mixin flex-center($direction: column) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: $direction;
+}
+
+@mixin responsive-font($min, $max, $viewport: 5vw) {
+    font-size: clamp(#{$min}, #{$viewport}, #{$max});
+}
+
+@mixin glass-effect {
+    background: $card-bg;
+    backdrop-filter: blur(10px);
+    border: 1px solid $border-color;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.container {
+    @include flex-center(column);
+    min-height: 100vh;
+    padding: 2rem;
+    background: $bg-gradient;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 150%;
+        height: 150%;
+        background: radial-gradient(circle at 70% 30%,
+                rgba($primary-color, 0.05) 0%,
+                transparent 50%);
+        animation: rotate 20s linear infinite;
+        z-index: 0;
+    }
+
+    >div:first-child {
         text-align: center;
+        margin: 2rem 0 3rem;
+        position: relative;
+        z-index: 1;
+        animation: fadeInUp 0.8s ease-out;
 
         h1 {
-            font-size: 2.5rem;
-            color: #4169e1af;
+            @include responsive-font(2rem, 3.5rem);
+            color: $primary-color;
+            text-shadow: 0 0 20px rgba($primary-color, 0.5);
+            position: relative;
+            display: inline-block;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100px;
+                height: 3px;
+                background: $primary-color;
+                border-radius: 2px;
+                box-shadow: 0 0 10px $primary-color;
+            }
         }
     }
 
     .content {
         width: 100%;
+        max-width: 1400px;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 4rem;
-        gap: 2rem;
+        gap: clamp(0.5rem, 2vw, 2rem);
+        padding: clamp(1rem, 3vw, 4rem);
+        position: relative;
+        z-index: 1;
 
         .carousel {
             display: flex;
@@ -28,18 +115,212 @@
             justify-content: center;
             width: 100%;
             gap: 1.5rem;
+            perspective: 1000px;
+
+            >div {
+                flex: 0 0 calc(33.33% - 1rem);
+                max-width: 400px;
+                transition: all 0.3s ease;
+                animation: fadeInUp 0.5s ease-out;
+
+                &:hover {
+                    transform: translateY(-10px) scale(1.02);
+                    z-index: 2;
+                }
+            }
         }
 
         .arrow_right,
         .arrow_left {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 3rem;
-            color: #4169e1af;
-            background-color: transparent;
-            border: none;
+            @include flex-center(row);
+            font-size: clamp(2rem, 2vw, 3rem);
+            color: $primary-color;
+            background: rgba($primary-color, 0.1);
+            border: 2px solid rgba($primary-color, 0.3);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
             cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 2;
+            backdrop-filter: blur(5px);
+
+            &:hover {
+                background: $primary-color;
+                color: white;
+                transform: scale(1.1);
+                box-shadow: 0 0 30px rgba($primary-color, 0.5);
+                border-color: transparent;
+
+                svg {
+                    animation: pulse 1s infinite;
+                }
+            }
+
+            &:active {
+                transform: scale(0.95);
+            }
+
+            &:disabled {
+                opacity: 0.3;
+                cursor: not-allowed;
+                pointer-events: none;
+            }
+
+            svg {
+                transition: all 0.3s ease;
+            }
         }
+    }
+
+    .indicators {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 2rem;
+        z-index: 1;
+        position: relative;
+
+        .indicator {
+            width: 40px;
+            height: 4px;
+            background: rgba($primary-color, 0.2);
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background: rgba($primary-color, 0.5);
+            }
+
+            &.active {
+                background: $primary-color;
+                box-shadow: 0 0 10px $primary-color;
+                width: 60px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .container {
+        .content {
+            .carousel>div {
+                flex: 0 0 calc(50% - 1rem);
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+
+        >div:first-child {
+            margin: 1rem 0 2rem;
+
+            h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        .content {
+            gap: 0.5rem;
+
+            .carousel {
+                gap: 1rem;
+
+                >div {
+                    flex: 0 0 calc(100% - 2rem);
+                }
+            }
+
+            .arrow_right,
+            .arrow_left {
+                width: 45px;
+                height: 45px;
+                font-size: 1.8rem;
+                position: absolute;
+                background: rgba($primary-color, 0.2);
+
+                &.arrow_left {
+                    left: 5px;
+                }
+
+                &.arrow_right {
+                    right: 5px;
+                }
+            }
+        }
+
+        .indicators {
+            margin-top: 3rem;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        >div:first-child h1 {
+            font-size: 2rem;
+
+            &::after {
+                width: 60px;
+            }
+        }
+
+        .content {
+
+            .arrow_right,
+            .arrow_left {
+                width: 35px;
+                height: 35px;
+                font-size: 1.2rem;
+            }
+        }
+
+        .indicators .indicator {
+            width: 30px;
+
+            &.active {
+                width: 45px;
+            }
+        }
+    }
+}
+
+@media (min-width: 1600px) {
+    .container .content {
+        max-width: 1800px;
+
+        .carousel>div {
+            max-width: 500px;
+        }
+    }
+}
+
+@media (max-height: 600px) and (orientation: landscape) {
+    .container {
+        min-height: auto;
+        padding: 2rem 1rem;
+
+        >div:first-child {
+            margin: 0.5rem 0 1.5rem;
+        }
+
+        .content {
+            .carousel>div {
+                flex: 0 0 calc(33.33% - 1rem);
+            }
+        }
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
     }
 }
