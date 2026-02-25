@@ -172,33 +172,6 @@ $border-color: rgba(65, 105, 225, 0.2);
             }
         }
     }
-
-    .indicators {
-        display: flex;
-        gap: 0.5rem;
-        margin-top: 2rem;
-        z-index: 1;
-        position: relative;
-
-        .indicator {
-            width: 40px;
-            height: 4px;
-            background: rgba($primary-color, 0.2);
-            border-radius: 2px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-
-            &:hover {
-                background: rgba($primary-color, 0.5);
-            }
-
-            &.active {
-                background: $primary-color;
-                box-shadow: 0 0 10px $primary-color;
-                width: 60px;
-            }
-        }
-    }
 }
 
 @media (max-width: 1024px) {

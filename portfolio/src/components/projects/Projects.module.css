@@ -138,29 +138,6 @@
 .container .content .arrow_left svg {
   transition: all 0.3s ease;
 }
-.container .indicators {
-  display: flex;
-  gap: 0.5rem;
-  margin-top: 2rem;
-  z-index: 1;
-  position: relative;
-}
-.container .indicators .indicator {
-  width: 40px;
-  height: 4px;
-  background: rgba(65, 105, 225, 0.2);
-  border-radius: 2px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.container .indicators .indicator:hover {
-  background: rgba(65, 105, 225, 0.5);
-}
-.container .indicators .indicator.active {
-  background: #4169e1;
-  box-shadow: 0 0 10px #4169e1;
-  width: 60px;
-}
 
 @media (max-width: 1024px) {
   .container .content .carousel > div {
